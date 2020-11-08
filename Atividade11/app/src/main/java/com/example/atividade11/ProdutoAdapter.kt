@@ -26,14 +26,14 @@ class ProdutoAdapter(contexto: Context) : ArrayAdapter<Produto>(contexto, 0) {
             v = LayoutInflater.from(context).inflate(R.layout.list_view_item, parent, false)
         }
         val item = getItem(position)
-        val txtCodigo = v.findViewById<TextView>(R.id.txtItemCodigo)
+        val txtId = v.findViewById<TextView>(R.id.txtItemId)
         val txtProduto = v.findViewById<TextView>(R.id.txtItemProduto)
         val txtQtde = v.findViewById<TextView>(R.id.txtItemQtde)
         val txtTipoUnidade = v.findViewById<TextView>(R.id.txtItemTipoUnidade)
         val txtValor = v.findViewById<TextView>(R.id.txtItemValor)
         val imgProduto = v.findViewById<ImageView>(R.id.imgItemFoto)
 
-        txtCodigo.text = item?.codigo.toString()
+        txtId.text = item?.id.toString()
         txtProduto.text = item?.nome
         txtQtde.text = item?.quantidade.toString()
         txtTipoUnidade.text = item?.tipoUnidade

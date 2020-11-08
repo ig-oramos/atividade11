@@ -10,6 +10,8 @@ import android.app.Activity
 import kotlinx.android.synthetic.main.list_view_item.*
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import org.jetbrains.anko.db.insert
+import org.jetbrains.anko.toast
 
 class CadastroActivity : AppCompatActivity() {
     val COD_IMAGE = 101
@@ -19,9 +21,7 @@ class CadastroActivity : AppCompatActivity() {
         setContentView(R.layout.activity_cadastro)
 
         btnInserir.setOnClickListener {
-            if (txtCodigo.text.isEmpty())
-                txtCodigo.error = "Este campo é obrigatório"
-            else if (txtProduto.text.isEmpty())
+            if (txtProduto.text.isEmpty())
                 txtProduto.error = "Este campo é obrigatório"
             else if (txtValor.text.isEmpty())
                 txtValor.error = "Este campo é obrigatório"
@@ -30,22 +30,35 @@ class CadastroActivity : AppCompatActivity() {
             else if (txtTipoUnidade.text.isEmpty())
                 txtTipoUnidade.error = "Este campo é obrigatório"
             else {
-                txtCodigo.error = null
+                // Limpa os erros
                 txtProduto.error = null
                 txtValor.error = null
                 txtQtde.error = null
                 txtTipoUnidade.error = null
-                val produto: Produto = Produto(txtCodigo.text.toString().toInt(),
-                    txtProduto.text.toString(), txtQtde.text.toString().toInt(),
-                    txtTipoUnidade.text.toString(), txtValor.text.toString().toDouble())
 
-                produtosGlobal.add(produto)
-                txtCodigo.text.clear()
-                txtProduto.text.clear()
-                txtQtde.text.clear()
-                txtTipoUnidade.text.clear()
-                txtValor.text.clear()
+                database.use {
+                    val idProduto = insert("produto",
+                        "nome" to txtProduto.text.toString(),
+                        "quantidade" to txtQtde.text.toString().toInt(),
+                        "tipo_unidade" to txtTipoUnidade.text.toString(),
+                        "valor" to txtValor.text.toString().toDouble(),
+                        "foto" to imageBitmap?.toByteArray())
+
+                    if (idProduto != -1L) {
+                        toast("Item inserido com sucesso")
+                        // Limpa os campos
+                        txtProduto.text.clear()
+                        txtQtde.text.clear()
+                        txtTipoUnidade.text.clear()
+                        txtValor.text.clear()
+                    } else
+                        toast("Erro ao inserir no banco de dados")
+                }
             }
+        }
+
+        imgFotoProduto.setOnClickListener {
+            abrirGaleria()
         }
     }
 

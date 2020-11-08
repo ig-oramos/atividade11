@@ -10,7 +10,7 @@
 
     <TextView
         android:layout_width="0dp" android:layout_height="wrap_content"
-        android:id="@+id/txtItemCodigo" android:layout_weight="1"
+        android:id="@+id/txtItemId" android:layout_weight="1"
         android:textSize="18sp" android:textStyle="bold" />
 
     <TextView
