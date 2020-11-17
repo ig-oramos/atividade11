@@ -15,7 +15,6 @@ import java.net.URL
 import java.util.*
 
 class ConvertActivity : AppCompatActivity() {
-    val API_URL = "https://www.mercadobitcoin.net/api/BTC/ticker/"
     var cotacaoBitcoin: Double = 0.0
 
     override fun onCreate(savedInstanceState: Bundle?) {

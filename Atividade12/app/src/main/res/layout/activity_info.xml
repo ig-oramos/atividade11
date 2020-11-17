@@ -14,5 +14,29 @@
         android:textSize="18sp" android:textStyle="bold"
         android:gravity="center" />
 
-    
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:stretchColumns="1">
+        <TableRow>
+            <TextView android:text="Compra" android:padding="3dip" />
+            <TextView android:id="@+id/txtBuy" android:padding="3dip" />
+        </TableRow>
+        <TableRow>
+            <TextView android:text="Venda" android:padding="3dip" />
+            <TextView android:id="@+id/txtSell" android:padding="3dip" />
+        </TableRow>
+        <TableRow>
+            <TextView android:text="Maior preço" android:padding="3dip" />
+            <TextView android:id="@+id/txtHigh" android:padding="3dip" />
+        </TableRow>
+        <TableRow>
+            <TextView android:text="Menor preço" android:padding="3dip" />
+            <TextView android:id="@+id/txtLow" android:padding="3dip" />
+        </TableRow>
+        <TableRow>
+            <TextView android:text="Data" android:padding="3dip" />
+            <TextView android:id="@+id/txtDate" android:padding="3dip" />
+        </TableRow>
+    </TableLayout>
 </LinearLayout>

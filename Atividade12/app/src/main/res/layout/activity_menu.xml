@@ -16,18 +16,24 @@
         android:textSize="18sp"
         android:textStyle="bold" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnConvertAct"
-        android:text="Calculadora de Bitcoins"
-        android:padding="90dp"
-        android:textSize="18sp" android:textStyle="bold" />
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="2dp"
+        android:orientation="vertical">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/btnConvertAct"
+            android:layout_weight="1"
+            android:text="Calculadora de Bitcoins"
+            android:textSize="18sp" android:textStyle="bold" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnInfoAct"
-        android:text="Informações" android:padding="90dp"
-        android:textSize="18sp" android:textStyle="bold"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/btnInfoAct"
+            android:layout_weight="1"
+            android:text="Informações"
+            android:textSize="18sp" android:textStyle="bold"/>
+    </LinearLayout>
 </LinearLayout>
