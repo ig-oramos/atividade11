@@ -17,17 +17,17 @@ import org.jetbrains.anko.okButton
 class MainActivity : AppCompatActivity() {
     val ID_REQUISICAO_FINE_LOCATION = 101
     lateinit var locationListener: LocationListener
-    val locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
+    var locationManager: LocationManager? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
         btnObter.setOnClickListener {
             requisitarLocalizacao()
         }
 
         btnParar.setOnClickListener {
-            locationManager.removeUpdates(locationListener)
+            locationManager!!.removeUpdates(locationListener)
         }
     }
 
@@ -38,9 +38,9 @@ class MainActivity : AppCompatActivity() {
             Log.d("Requisitar localização", "IF requisitarLocalizacao")
             val tempoAtualizacao: Long = 0
             val distanciaAtualizacao: Float = 0f
-
+            locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
             // Obtendo dados de localização de rede
-            locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,
+            locationManager?.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,
                 tempoAtualizacao, distanciaAtualizacao, locationListener)
         } else {
             Log.d("Requisitar localização", "ELSE requisitarLocalizacao")

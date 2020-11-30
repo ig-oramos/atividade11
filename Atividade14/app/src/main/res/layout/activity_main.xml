@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Identificação por CEP"
+        android:textStyle="bold" android:textSize="24dp"
+        android:layout_gravity="center" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtCep" android:hint="CEP"
+        android:textSize="16dp" android:textStyle="bold"
+        android:inputType="number"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Calcular" android:id="@+id/btnCalcular"
+        android:textSize="16dp" android:textStyle="bold" />
+    
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:stretchColumns="1">
+        <TableRow>
+            <TextView android:text="Logradouro" android:padding="3dip" />
+            <TextView android:id="@+id/txtLogradouro" android:padding="3dip" />
+        </TableRow>
+        <TableRow>
+            <TextView android:text="Complemento" android:padding="3dip" />
+            <TextView android:id="@+id/txtComplemento" android:padding="3dip" />
+        </TableRow>
+        <TableRow>
+            <TextView android:text="Bairro" android:padding="3dip" />
+            <TextView android:id="@+id/txtBairro" android:padding="3dip" />
+        </TableRow>
+        <TableRow>
+            <TextView android:text="Localidade" android:padding="3dip" />
+            <TextView android:id="@+id/txtLocalidade" android:padding="3dip" />
+        </TableRow>
+        <TableRow>
+            <TextView android:text="UF" android:padding="3dip" />
+            <TextView android:id="@+id/txtUf" android:padding="3dip" />
+        </TableRow>
+        <TableRow>
+            <TextView android:text="DDD" android:padding="3dip" />
+            <TextView android:id="@+id/txtDdd" android:padding="3dip" />
+        </TableRow>
+    </TableLayout>
+</LinearLayout>
